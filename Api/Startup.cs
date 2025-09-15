@@ -18,11 +18,12 @@ using MinimalApi.Infraestrutura.Db;
 
 public class Startup
 {
-    public Startup(IConfiguration configuration)
-    {
-        Configuration = configuration;
-        key = Configuration?.GetSection("Jwt")?.ToString() ?? "";
-    }
+ public Startup(IConfiguration configuration)
+{
+    Configuration = configuration;
+    key = Configuration["Jwt"] ?? "";
+}
+
 
     private string key = "";
     public IConfiguration Configuration { get;set; } = default!;
